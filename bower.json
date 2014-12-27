@@ -1,0 +1,15 @@
+{
+  "name": "color-selector",
+  "description": "",
+  "homepage": "",
+  "keywords": [
+  ],
+  "author": "",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#latest",
+    "paper-shadow": "Polymer/paper-shadow#latest",
+    "paper-icon-button": "Polymer/paper-icon-button#latest",
+    "core-overlay": "Polymer/core-overlay#latest"
+  }
+}

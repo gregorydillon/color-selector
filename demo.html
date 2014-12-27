@@ -1,0 +1,42 @@
+<html><head><link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="color-selector.html">
+
+<link rel="import" href="color-selector-button.html">
+
+</head><body unresolved=""><polymer-element name="color-selector-demo">
+  
+  <template>
+    
+    <div>{{hex}}</div>
+    
+    <div>hue: {{hue}}</div>
+    
+    <div>saturation: {{saturation}}</div>
+    
+    <div>value: {{value}}</div>
+    
+    <color-selector id="color" hue="{{hue}}" saturation="{{saturation}}" value="{{value}}" hex="{{hex}}">
+    </color-selector>
+    
+    <color-selector-button hue="{{hue}}" saturation="{{saturation}}" value="{{value}}" hex="{{hex}}">
+    </color-selector-button>
+    
+  </template>
+  
+  <script src="demo.html.0.js"></script>
+  
+</polymer-element>
+
+
+
+  
+
+
+
+  
+  <color-selector-demo></color-selector-demo>
+  
+
+
+</body></html>

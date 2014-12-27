@@ -1,0 +1,161 @@
+<link rel="import"
+      href="../polymer/polymer.html">
+
+<link rel="import"
+      href="../paper-shadow/paper-shadow.html">
+
+<polymer-element name="color-selector"
+                 attributes="hue
+                             saturation
+                             value
+                             presets
+                             hex">
+  
+  <template>
+    
+    <div vertical layout>
+      
+      <div horizontal layout style="overflow: hidden;">
+        
+        <canvas id="hue-saturation"
+                width="200"
+                height="100"
+                on-down="{{downHueSaturation}}"
+                on-track="{{trackHueSaturation}}">
+        </canvas>
+        
+        <div id="hue-saturation-nub"
+             class="nub"
+             on-track="{{trackHueSaturation}}">
+          
+          <paper-shadow z="1" 
+                        style="border-radius: 50px;"
+                        fit>
+          </paper-shadow>
+          
+        </div>
+        
+        <canvas id="value"
+                width="12"
+                height="100"
+                on-down="{{downValue}}"
+                on-track="{{trackValue}}">
+        </canvas>
+        
+        <div id="value-nub"
+             class="nub"
+             on-track="{{trackValue}}">
+          
+          <paper-shadow z="1" 
+                        style="border-radius: 50px;"
+                        fit>
+          </paper-shadow>
+          
+        </div>
+        
+      </div>
+      
+      <div style="margin: 26px -6px -6px -6px;
+                  max-width: 252px;
+                  display: {{{'none':!presets}|tokenList}};" 
+           horizontal layout wrap>
+        
+        <template repeat="{{p, idx in presets}}">
+          
+          <div id="preset_{{idx}}"
+               class="color-preset"
+               style="background-color: rgba({{p.r}}, {{p.g}}, {{p.b}}, 1);"
+               on-tap="{{setPreset}}">
+          </div>
+          
+        </template>
+        
+      </div>
+    
+    </div>
+    
+    <style>
+      
+      :host{
+        
+        position: relative;
+        
+        display: inline-block;
+        
+        background-color: #555;
+        
+        -webkit-user-select: none;
+        
+        cursor: default;
+        
+        padding: 24px;
+        
+      }
+      
+      .color-preset{
+        
+        position: relative;
+        
+        margin: 6px;
+        
+        width: 24px;
+        
+        height: 24px;
+        
+        border-radius: 50px;
+        
+        overflow: hidden;
+        
+      }
+      
+      #hue-saturation{
+        
+        margin-right: 28px;
+        
+      }
+      
+      #hue-saturation-nub{
+        
+        top: {{(saturation * 100) + 10}}px;
+        
+        left: {{(hue * 200) + 10}}px;
+        
+      }
+      
+      #value{
+        
+      }
+      
+      #value-nub{
+        
+        top: {{100 - (value * 100) + 10}}px;
+        
+        left: 244px;
+        
+      }
+      
+      .nub{
+        
+        transition: {{{"0.1": !tracking, "0": tracking}|tokenList}}s;
+        
+        position: absolute;
+        
+        width: 24px;
+        
+        height: 24px;
+        
+        border-radius: 90px;
+        
+        border: 2px solid white;
+        
+        background-color: rgba({{red}}, {{green}}, {{blue}}, 1);
+        
+      }
+      
+    </style>
+    
+  </template>
+  
+  <script src="color-selector.js"></script>
+  
+</polymer-element>

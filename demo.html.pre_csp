@@ -1,0 +1,135 @@
+<link rel="import"
+      href="../polymer/polymer.html">
+
+<link rel="import"
+      href="color-selector.html">
+
+<link rel="import"
+      href="color-selector-button.html">
+
+<polymer-element name="color-selector-demo">
+  
+  <template>
+    
+    <div>{{hex}}</div>
+    
+    <div>hue: {{hue}}</div>
+    
+    <div>saturation: {{saturation}}</div>
+    
+    <div>value: {{value}}</div>
+    
+    <color-selector id="color"
+                    hue="{{hue}}"
+                    saturation="{{saturation}}"
+                    value="{{value}}"
+                    hex="{{hex}}">
+    </color-selector>
+    
+    <color-selector-button hue="{{hue}}"
+                           saturation="{{saturation}}"
+                           value="{{value}}"
+                           hex="{{hex}}">
+    </color-selector-button>
+    
+  </template>
+  
+  <script>
+    
+    Polymer({
+      
+      ready: function(){
+        
+        this.$.color.presets = [
+          
+          {
+            
+            r: 255,
+            
+            g: 255,
+            
+            b: 255
+            
+          },
+          
+          {
+            
+            r: 120,
+            
+            g: 70,
+            
+            b: 30
+            
+          },
+          
+          {
+            
+            r: 0,
+            
+            g: 50,
+            
+            b: 255
+            
+          },
+          
+          {
+            
+            r: 255,
+            
+            g: 100,
+            
+            b: 0
+            
+          },
+          
+          {
+            
+            r: 0,
+            
+            g: 0,
+            
+            b: 255
+            
+          },
+          
+          {
+            
+            r: 255,
+            
+            g: 0,
+            
+            b: 0
+            
+          },
+          
+          {
+            
+            r: 0,
+            
+            g: 255,
+            
+            b: 0
+            
+          }
+          
+        ]
+        
+      }
+      
+    })
+    
+  </script>
+  
+</polymer-element>
+
+<html>
+<head>
+  
+</head>
+
+<body unresolved>
+  
+  <color-selector-demo></color-selector-demo>
+  
+</body>
+</html>

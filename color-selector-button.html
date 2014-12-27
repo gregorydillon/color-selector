@@ -1,0 +1,105 @@
+<link rel="import"
+      href="../polymer/polymer.html">
+
+<link rel="import"
+      href="../core-overlay/core-overlay.html">
+
+<link rel="import"
+      href="../paper-shadow/paper-shadow.html">
+
+<link rel="import"
+      href="../paper-icon-button/paper-icon-button.html">
+
+<link rel="import"
+      href="color-selector.html">
+
+<polymer-element name="color-selector-button"
+                 attributes="icon
+                             hue
+                             saturation
+                             value
+                             hex
+                             presets
+                             overlayZ">
+  
+  <template>
+    
+      <paper-icon-button id="button"
+                         on-tap="{{toggle}}">
+        
+      </paper-icon-button>
+    
+    <core-overlay id="overlay">
+      
+      <paper-shadow z="{{overlayZ}}" fit></paper-shadow>
+      
+      <color-selector hue="{{hue}}"
+                      saturation="{{saturation}}"
+                      value="{{value}}"
+                      hex="{{hex}}"
+                      presets="{{presets}}">
+      </color-selector>
+      
+    </core-overlay>
+    
+    <style>
+      
+      :host{
+        
+        display: inline-block;
+        
+        position: relative;
+        
+        height: 40px;
+        
+        width: 40px;
+        
+      }
+      
+      paper-icon-button{
+        
+        background-color: {{hex}};
+        
+        border-radius: 50px;
+        
+      }
+      
+      core-overlay{
+        
+        position: absolute;
+        
+        top: 44px;
+        
+      }
+      
+      #overlay{
+        
+        overflow: visible;
+        
+      }
+      
+    </style>
+    
+  </template>
+  
+  <script>
+    
+    Polymer({
+      
+      toggle: function(e){
+        
+        var bounds = this.$.button.getBoundingClientRect();
+        
+        this.$.overlay.toggle();
+        
+      }
+      
+    })
+    
+  </script>
+  
+</polymer-element>  })
+    
+  </script>
+  
+</polymer-element>
